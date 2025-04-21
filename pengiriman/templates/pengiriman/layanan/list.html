@@ -1,0 +1,26 @@
+<h2>Daftar Layanan</h2>
+<a href="{% url 'daftar_pengiriman' %}">Pengiriman</a>
+<a href="{% url 'tambah_layanan' %}">Tambah Layanan</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Nama Layanan</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for layanan in layanan_list %}
+        <tr>
+          <td>{{ layanan.nama_layanan }}</td>
+          <td>
+            <a href="{% url 'edit_layanan' layanan.id %}">Edit</a> |
+            <a href="{% url 'hapus_layanan' layanan.id %}">Hapus</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2">Belum ada layanan</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>

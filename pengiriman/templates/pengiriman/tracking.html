@@ -1,0 +1,6 @@
+<h2>Tracking - {{ pengiriman.kode_resi }}</h2>
+<ul>
+  {% for item in tracking %}
+    <li>{{ item.waktu_update }} - {{ item.status }} ({{ item.lokasi }})</li>
+  {% endfor %}
+</ul>

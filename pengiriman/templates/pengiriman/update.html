@@ -1,0 +1,6 @@
+<h2>Update Status - {{ pengiriman.kode_resi }}</h2>
+<form method="POST">{% csrf_token %}
+  <input name="status" placeholder="Status Baru"><br>
+  <input name="lokasi" placeholder="Lokasi"><br>
+  <button type="submit">Update</button>
+</form>

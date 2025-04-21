@@ -1,0 +1,11 @@
+<h2>Tambah Layanan</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label>Nama Layanan:</label><br>
+  <input name="nama_layanan" placeholder="Nama Layanan"><br><br>
+  
+  <label>Ongkos Kirim:</label><br>
+  <input name="ongkos_kirim" type="number" step="0.01" placeholder="Contoh: 10000"><br><br>
+  <button type="submit">Simpan</button>
+</form>
+<a href="{% url 'list_layanan' %}">Kembali</a>

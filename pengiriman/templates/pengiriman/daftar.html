@@ -1,0 +1,34 @@
+<h2>Daftar Pengiriman</h2>
+<a href="{% url 'tambah_pengiriman' %}">+ Tambah</a>
+<a href="{% url 'list_layanan' %}">+ Layanan</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Kode Resi</th>
+        <th>Layanan</th>
+        <th>Berat</th>
+        <th>Status</th>
+        <th>Total Biaya</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in pengiriman %}
+      <tr>
+        <td>{{ item.kode_resi }}</td>
+        <td>{{ item.layanan.nama_layanan }}</td>
+        <td>{{ item.berat_kg }} kg</td>
+        <td>{{ item.status_pengiriman }}</td>
+        <td>Rp {{ item.total_biaya|floatformat:2 }}</td>
+        <td>
+          <a href="{% url 'update_status' item.kode_resi %}">Update</a> |
+          <a href="{% url 'tracking_detail' item.kode_resi %}">Tracking</a>
+        </td>
+      </tr>
+    {% empty %}
+        <tr>
+          <td colspan="6">Belum ada pengiriman</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>

@@ -1,0 +1,12 @@
+<h2>Edit Layanan</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label>Nama Layanan:</label><br>
+  <input name="nama_layanan" value="{{ layanan.nama_layanan }}"><br><br>
+
+  <label>Ongkos Kirim:</label><br>
+  <input name="ongkos_kirim" type="number" step="0.01" value="{{ layanan.ongkos_kirim }}"><br><br>
+
+  <button type="submit">Simpan</button>
+</form>
+<a href="{% url 'list_layanan' %}">Kembali</a>

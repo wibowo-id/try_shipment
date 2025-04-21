@@ -1,0 +1,15 @@
+<h2>Tambah Pengiriman</h2>
+<form method="POST">{% csrf_token %}
+  <input name="kode_resi" placeholder="Kode Resi"><br>
+  <input name="pengirim_nama" placeholder="Pengirim"><br>
+  <input name="penerima_nama" placeholder="Penerima"><br>
+  <input name="kota_asal" placeholder="Kota Asal"><br>
+  <input name="kota_tujuan" placeholder="Kota Tujuan"><br>
+  <input name="berat_kg" placeholder="Berat (kg)"><br>
+  <select name="layanan">
+    {% for layanan in layanan_list %}
+      <option value="{{ layanan.id }}">{{ layanan.nama_layanan }}</option>
+    {% endfor %}
+  </select><br>
+  <button type="submit">Simpan</button>
+</form>
